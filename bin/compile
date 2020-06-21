@@ -215,6 +215,8 @@ restore_cache() {
     if [[ "$cache_directories" == "" ]]; then
       restore_default_cache_directories "$BUILD_DIR" "$CACHE_DIR" "$YARN_CACHE_FOLDER"
     else
+      header "Restoring cache (test)"
+      restore_default_cache_directories "$BUILD_DIR" "$CACHE_DIR" "$YARN_CACHE_FOLDER"
       restore_custom_cache_directories "$BUILD_DIR" "$CACHE_DIR" "$cache_directories"
     fi
   elif [[ "$cache_status" == "new-signature" ]]; then
@@ -285,7 +287,8 @@ cache_build() {
     header "Caching build"
     save_default_cache_directories "$BUILD_DIR" "$CACHE_DIR" "$YARN_CACHE_FOLDER"
   else
-    header "Caching build"
+    header "Caching build (test)"
+    save_default_cache_directories "$BUILD_DIR" "$CACHE_DIR" "$YARN_CACHE_FOLDER"
     save_custom_cache_directories "$BUILD_DIR" "$CACHE_DIR" "$cache_directories"
   fi
   save_signature "$CACHE_DIR"
