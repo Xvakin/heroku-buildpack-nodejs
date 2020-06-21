@@ -128,7 +128,7 @@ create_env() {
   create_default_env
 }
 
-header "Creating runtime environment" | output "$LOG_FILE"
+header "Creating runtime environment (test)" | output "$LOG_FILE"
 
 mkdir -p "$BUILD_DIR/.heroku/node/"
 cd "$BUILD_DIR"
